@@ -11,7 +11,7 @@ on:
 jobs:
   validate:
     name: Validate PR Title
-    runs-on: ubuntu-latest
+    runs-on: tenki-standard-autoscale
     if: github.event.pull_request.draft == false
     steps:
       - name: Check PR Title
@@ -30,7 +30,9 @@ jobs:
             chore
             revert
           
+
           scopes: |
+
           requireScope: false
           subjectPatternError: |
             The subject "{subject}" found in the pull request title "{title}"
@@ -42,6 +44,7 @@ jobs:
             feat: add new mempool maintenance feature
             fix(sequencer): resolve memory leak in transaction processing
           
+
           validateSingleCommit: false
           validateSingleCommitMatchesPrTitle: false
         env:
